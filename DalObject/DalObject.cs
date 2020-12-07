@@ -9,17 +9,17 @@ using DS;
 
 namespace DL
 {
-    public class DalObject : IDal
+    public class DalObject : IDAL
     {
-        public static DalObject Instance { get; } = new DalObject();
+        #region singelton
+        static readonly DalObject instance = new DalObject();
+        static DalObject() { }
+        DalObject() { }
+        public static DalObject Instance => instance;
+        #endregion
 
         static Random rnd = new Random(DateTime.Now.Millisecond);
         double temperature;
-
-
-      
-           
-      
 
         public double GetTemparture(int day)
         {
@@ -34,7 +34,7 @@ namespace DL
             var directions = (WindDirections[])Enum.GetValues(typeof(WindDirections));
             direction.direction = directions[rnd.Next(0, directions.Length)];
 
-            return direction;
+            return direction.Clone();
         }
     }
 }

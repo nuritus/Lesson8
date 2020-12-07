@@ -1,7 +1,7 @@
 ﻿using System;
 using BlApi;
 using APIDL;
-using DL;
+//using DL;
 using BO;
 using DO;
 
@@ -11,8 +11,7 @@ namespace BL
     {
         static Random rnd = new Random(DateTime.Now.Millisecond);
 
-        // readonly IDal dal = DalFactory.GetDal();
-        IDal dal = new DalObject();
+        readonly IDAL dal = DalFactory.GetDal();
 
         public Weather GetWeather(int day)
         {

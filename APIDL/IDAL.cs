@@ -8,7 +8,7 @@ using DO;
 namespace APIDL
 
 {
-    public interface IDal
+    public interface IDAL
     {
         double GetTemparture(int day);
         WindDirection GetWindDirection(int day);
